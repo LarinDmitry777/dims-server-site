@@ -14,10 +14,3 @@
 .title__content {
     color: green;
 }
-
-@media only screen and (max-width: 500px) {
-    .statisticCardList {
-        /*flex-direction: column;*/
-        align-items: center;
-    }
-}

@@ -22,7 +22,7 @@ body {
     margin-top: 20px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     .page {
         margin: auto;
         width: 80%;

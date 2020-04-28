@@ -31,7 +31,7 @@
 .header__subtitle_highlighted {
     font-family: 'Ubuntu Mono', monospace;
     display: inline-block;
-    background: rgba(100, 100, 200, 0.5);
+    background: rgba(100, 100, 200, 0.66);
     box-shadow: 0 0 15px rgba(0,0,0,0.7);
     border-radius: 7px;
     margin: 0 15px;
@@ -72,16 +72,26 @@
     background: transparent;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
+    .header {
+        margin-bottom: 45px;
+    }
+
     .header__serverName {
-        font-size: 40vw;
-        text-shadow: 0 0 6vw rgba(0,0,0,1);
-        margin: 3vh;
+        font-size: 250px;
+        line-height: 250px;
+        text-shadow: 0 0 30px rgba(0,0,0,1);
+        margin: 15px;
     }
 
     .header__subtitle {
-        margin: 5vh;
-        font-size: 20vw;
+        margin: 5px;
+        font-size: 100px;
+        text-shadow: 0 0 15px rgba(0,0,0,1);
+    }
+
+    .header__subtitle_highlighted {
+        padding: 15px;
     }
 
     .header__notification {
