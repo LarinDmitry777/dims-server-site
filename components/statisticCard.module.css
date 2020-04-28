@@ -1,0 +1,65 @@
+.statisticCard {
+    width: 200px;
+    height: 300px;
+    border: 1px solid gray;
+    margin: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: default;
+    background: rgba(255, 255, 255, 0.66);
+    box-shadow: 0 0 13px rgba(0,0,0,0.7);
+
+    transform: scale(1.0);
+    transition: 0.2s;
+}
+
+.statisticCard:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    box-shadow: none;
+}
+
+.statisticCard__image {
+    margin: 15px auto 0;
+    width: 125px;
+    height: 125px;
+}
+
+.statisticCard__text {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.statisticCard__value {
+    font-size: 35px;
+    text-align: center;
+    color: green;
+    font-family: 'Inter', sans-serif;
+    background: lightgray;
+    border-radius: 0 0 13px 13px;
+    border-top: 1px solid darkgray;
+}
+
+@media only screen and (max-width: 500px) {
+    .statisticCard {
+        width: 60vw;
+        height: 90vw;
+        margin: 2%;
+    }
+
+    .statisticCard__image {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    .statisticCard__text {
+        font-size: 5vh;
+    }
+
+    .statisticCard__value {
+        font-size: 7vh;
+    }
+}
