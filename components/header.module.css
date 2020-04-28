@@ -92,10 +92,15 @@
 
     .header__subtitle_highlighted {
         padding: 15px;
+        margin: 10px;
+    }
+
+    .header__subtitle_highlighted:hover {
+        transform: none;
     }
 
     .header__notification {
-        font-size: 8vw;
-        width: 40vw;
+        font-size: 45px;
+        width: 250px;
     }
 }
