@@ -1,8 +1,8 @@
-.title-wrapper {
+.titleWrapper {
     text-align: center;
 }
 
-.title-wrapper__title {
+.titleWrapper__title {
     font-family: 'Ubuntu Mono', monospace;
     font-size: 50px;
     text-align: center;

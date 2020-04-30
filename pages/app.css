@@ -22,7 +22,6 @@ a {
     border: 2px solid rgb(100, 100, 100);
     padding-top: 10px;
     box-shadow: 0 0 35px rgba(0,0,0,0.7);
-    padding-bottom: 20px;
     margin-bottom: 20px;
     margin-top: 20px;
 }
@@ -32,17 +31,4 @@ a {
         margin: auto;
         width: 80%;
     }
-}
-
-.statisticCardList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.title {
-    font-family: 'Inter', sans-serif;
-    font-size: 30px;
-    margin-left: 50px;
 }

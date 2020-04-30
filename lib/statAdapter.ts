@@ -1,6 +1,5 @@
 import fs from "fs";
-import {BaseStatistic, PlayerTopEntity, StatisticPersist, StatisticCardProps} from "../@types/statisticTypes";
-import statisticCard from "../components/statisticCard";
+import {BaseStatistic, StatisticCardColor, StatisticCardProps, StatisticPersist} from "../@types/statisticTypes";
 import {imagePaths} from "./imagesPaths";
 import {strings} from "./strings";
 
@@ -8,6 +7,24 @@ import {strings} from "./strings";
 const filePath = './../../serverPaper/scriptcraft/data/statistic-store.json'
 let lastStatisticUpdateTime: number;
 let statistis: StatisticPersist;
+
+const baseStatisticLines = [
+    'joinCount',
+    'chatMessagesCount',
+    'playerDeathCount',
+    'blockBreaksCount',
+    'placedBlocksCount',
+    'entitiesKillsCount',
+    'breedAnimalsCount',
+    'extractFurnaceCount',
+    'fishingCount',
+    'enchantItemsCount',
+    'uniquePlayersCount'
+];
+
+const baseStatisticHrefs = {
+    entitiesKillsCount: 'killedEntities'
+}
 
 function getStatisticObject(): StatisticPersist {
     const statisticUpdateTimeMillis = 60 * 1000;
@@ -20,35 +37,44 @@ function getStatisticObject(): StatisticPersist {
     return statistis;
 }
 
-export function getBaseStatistic(): BaseStatistic {
+export function getBaseStatistic(): StatisticCardProps[] {
     const statistic = getStatisticObject();
-    return {
-        joinCount: statistic.joinCount,
-        chatMessagesCount: statistic.chatMessagesCount,
-        playerDeathCount: statistic.playerDeathCount,
-        blockBreaksCount: statistic.blockBreaksCount,
-        placedBlocksCount: statistic.placedBlocksCount,
-        entitiesKillsCount: statistic.entitiesKillsCount,
-        breedAnimalsCount: statistic.breedAnimalsCount,
-        extractFurnaceCount: statistic.extractFurnaceCount,
-        fishingCount: statistic.fishingCount,
-        enchantItemsCount: statistic.enchantItemsCount,
-        uniquePlayersCount: statistic.uniquePlayersCount
-    }
+
+    return  baseStatisticLines.map(line => {
+        const cardObject: StatisticCardProps = {
+            imagePath: imagePaths[line],
+            text: strings[line],
+            value: statistic[line]
+        }
+        if (baseStatisticHrefs[line] !== undefined) {
+            cardObject.href = baseStatisticHrefs[line];
+        }
+
+        return cardObject;
+    })
 }
 
-export function getTopPlayers(numericStatName: string) {
+export function getTopPlayers(numericStatName: string): StatisticCardProps[] {
     const stat = getStatisticObject();
-    const playerTopEntities: PlayerTopEntity[] = [];
+    const staticCards: StatisticCardProps[] = [];
     for (const player of Object.keys(stat.players)) {
-        playerTopEntities.push({
-            player,
+        staticCards.push({
+            imagePath: 'images/icons/steve.png',
+            text: `${player}`,
             value: stat.players[player][numericStatName]
         });
     }
-    playerTopEntities.sort((a, b) => b.value - a.value);
 
-    return playerTopEntities.slice(0, 3);
+    staticCards.sort((a, b) => b.value - a.value);
+    const result = staticCards.slice(0, 3);
+
+    result[0].color = StatisticCardColor.gold;
+    result[1].color = StatisticCardColor.silver;
+    result[2].color = StatisticCardColor.bronze;
+
+    result[0].text = `👑 ${result[0].text} 👑`;
+
+    return result;
 }
 
 export function getKilledEntities(): StatisticCardProps[] {

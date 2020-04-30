@@ -1,0 +1,16 @@
+.statisticCardList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.statisticCardList__title {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    line-height: 30px;
+    padding: 0;
+    margin: 10px;
+}

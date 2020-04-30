@@ -42,4 +42,5 @@ export interface StatisticCardProps {
     imagePath?: string;
     text: string;
     value: number;
+    href?: string;
 }
