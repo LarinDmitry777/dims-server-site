@@ -1,54 +1,30 @@
 import React, {Component} from "react";
 import Header from "../components/header";
 import {GetServerSideProps} from "next";
-import {StatisticPersist} from "../@types/statisticTypes";
-import style from "./index.module.css";
+import {BaseStatistic, StatisticPersist} from "../@types/statisticTypes";
 import StatisticCard from "../components/statisticCard";
 import {strings} from "../lib/strings";
 import {imagePaths} from "../lib/imagesPaths";
 import fs from 'fs';
 import Head from "next/head";
+import Link from "next/link";
+import {getBaseStatistic} from "../lib/statAdapter";
 
 export const getServerSideProps: GetServerSideProps = async context => {
-    const filePath = './../../serverPaper/scriptcraft/data/statistic-store.json';
-    const fileContent = fs.readFileSync(filePath).toString();
-    const statistic: StatisticPersist = JSON.parse(fileContent);
     return {
-        props: {
-            joinCount: statistic.joinCount,
-            chatMessagesCount: statistic.chatMessagesCount,
-            playerDeathCount: statistic.playerDeathCount,
-            blockBreaksCount: statistic.blockBreaksCount,
-            placedBlocksCount: statistic.placedBlocksCount,
-            entitiesKillsCount: statistic.entitiesKillsCount,
-            breedAnimalsCount: statistic.breedAnimalsCount,
-            extractFurnaceCount: statistic.extractFurnaceCount,
-            fishingCount: statistic.fishingCount,
-            enchantItemsCount: statistic.enchantItemsCount,
-            uniquePlayersCount: statistic.uniquePlayersCount
-        }
+        props: getBaseStatistic()
     }
-}
-
-interface PageProps {
-    joinCount: string;
-    chatMessagesCount: number;
-    playerDeathCount: number;
-    blockBreaksCount: number;
-    placedBlocksCount: number;
-    entitiesKillsCount: number;
-    breedAnimalsCount: number;
-    extractFurnaceCount: number;
-    fishingCount: number;
-    enchantItemsCount: number;
-    uniquePlayersCount: number;
 }
 
 interface PageState {
 
 }
 
-export default class IndexPage extends Component<PageProps, PageState> {
+export default class IndexPage extends Component<BaseStatistic, PageState> {
+    private readonly linkUrls = {
+        entitiesKillsCount: 'killedEntities'
+    }
+
     private getPropsKey() {
         const keys = [];
         for (const prop in this.props) {
@@ -66,15 +42,22 @@ export default class IndexPage extends Component<PageProps, PageState> {
                 </Head>
                 <Header />
                 <div className='page'>
-                    <h1 className={style.title}>Общая статистика:</h1>
-                    <div className={style.statisticCardList}>
+                    <h1 className='title'>Общая статистика:</h1>
+                    <div className='statisticCardList'>
                         {this.getPropsKey().map((propKey: string) => {
+                            const url = this.linkUrls[propKey] === undefined
+                                ? 'index'
+                                : this.linkUrls[propKey];
                             return (
-                                    <StatisticCard text={strings[propKey]}
-                                                   value={this.props[propKey]}
-                                                   imagePath={imagePaths[propKey]}
-                                                   key={propKey}/>
-                                )
+                                    <Link href={url}>
+                                        <a>
+                                        <StatisticCard text={strings[propKey]}
+                                                       value={this.props[propKey]}
+                                                       imagePath={imagePaths[propKey]}
+                                                       key={propKey}/>
+                                        </a>
+                                    </Link>
+                                    )
                         })}
                     </div>
                 </div>

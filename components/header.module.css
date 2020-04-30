@@ -8,7 +8,15 @@
     font-size: 100px;
     text-align: center;
     text-shadow: 0 0 15px rgba(0,0,0,1);
-    cursor: default;
+    /*cursor: default;*/
+    color: whitesmoke;
+    transition: 1s;
+}
+
+.header__serverName:hover {
+    transform: scale(1.05);
+    transition: 1s;
+
 }
 
 .header__serverName::selection {

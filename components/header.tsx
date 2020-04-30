@@ -1,5 +1,6 @@
 import styles from './header.module.css';
 import React, {Component} from "react";
+import Link from "next/link";
 
 interface ComponentState {
     isNotificationVisible: boolean;
@@ -60,7 +61,11 @@ export default class Header extends Component<{}, {}> {
     render(): React.ReactNode {
         return (
             <header className={styles.header}>
-                <div className={styles.header__serverName}>Dims server</div>
+                <Link href='/'>
+                    <a>
+                        <div className={styles.header__serverName}>Dims server</div>
+                    </a>
+                </Link>
                 {this.state.isNotificationVisible
                     ? (
                         <div className={`${styles.header__notification}`}
