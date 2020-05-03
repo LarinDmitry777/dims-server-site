@@ -15,3 +15,10 @@
     padding: 3px 3px;
     width: 575px;
 }
+
+@media only screen and (max-width: 600px) {
+    .titleWrapper__title {
+        font-size: 75px;
+        line-height: 75px;
+    }
+}

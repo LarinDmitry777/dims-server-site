@@ -1,7 +1,8 @@
 import fs from "fs";
-import {BaseStatistic, StatisticCardColor, StatisticCardProps, StatisticPersist} from "../@types/statisticTypes";
-import {imagePaths} from "./imagesPaths";
-import {strings} from "./strings";
+import {StatisticCardColor, StatisticCardProps, StatisticPersist} from "../@types/statisticTypes";
+import blockBreaks from "../pages/blockBreaks";
+import {getString} from "./strings";
+import {getImage} from "./imagesPaths";
 
 //Временное решение, пока не будет совершен переход на микросервисы
 const filePath = './../../serverPaper/scriptcraft/data/statistic-store.json'
@@ -23,7 +24,17 @@ const baseStatisticLines = [
 ];
 
 const baseStatisticHrefs = {
-    entitiesKillsCount: 'killedEntities'
+    entitiesKillsCount: 'killedEntities',
+    blockBreaksCount: 'blockBreaks',
+    breedAnimalsCount: 'breed',
+    placedBlocksCount: 'placedBlocks',
+    playerDeathCount: 'deaths',
+    chatMessagesCount: 'chatMessages',
+    extractFurnaceCount: 'furnaceExtract',
+    fishingCount: 'fishing',
+    enchantItemsCount: 'enchant',
+    joinCount: 'serverJoin',
+    uniquePlayersCount: 'uniquePlayers'
 }
 
 function getStatisticObject(): StatisticPersist {
@@ -42,8 +53,8 @@ export function getBaseStatistic(): StatisticCardProps[] {
 
     return  baseStatisticLines.map(line => {
         const cardObject: StatisticCardProps = {
-            imagePath: imagePaths[line],
-            text: strings[line],
+            imagePath: getImage(line),
+            text: getString(line),
             value: statistic[line]
         }
         if (baseStatisticHrefs[line] !== undefined) {
@@ -78,15 +89,43 @@ export function getTopPlayers(numericStatName: string): StatisticCardProps[] {
 }
 
 export function getKilledEntities(): StatisticCardProps[] {
+    return getStatisticCards('entitiesKills');
+}
+
+export function getBreakBlocks(): StatisticCardProps[] {
+    return getStatisticCards('blocksBreak');
+}
+
+export function getBreedAnimals(): StatisticCardProps[] {
+    return [];
+}
+
+export function getUniquePlayers(): StatisticCardProps[] {
     const stat = getStatisticObject();
-    const killedEntities = stat.entitiesKills;
     const result: StatisticCardProps[] = [];
-    for(const entity of Object.keys(killedEntities)){
+    let idx = 1;
+    for (const key of Object.keys(stat.players)) {
         result.push({
-            text: strings[entity],
-            value: killedEntities[entity],
-            imagePath: imagePaths[entity]
-        });
+            imagePath: 'images/icons/steve.png',
+            text: key,
+            value: idx
+        })
+        idx++;
+    }
+
+    return result;
+}
+
+export function getStatisticCards(groupName: string): StatisticCardProps[] {
+    const stat = getStatisticObject();
+    const group = stat[groupName];
+    const result: StatisticCardProps[] = [];
+    for (const key of Object.keys(group)) {
+        result.push({
+            text: getString(key),
+            value: group[key],
+            imagePath: getImage(key)
+        })
     }
 
     result.sort((a, b) => b.value - a.value);

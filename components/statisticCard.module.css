@@ -27,6 +27,7 @@
 
 .statisticCard__image {
     image-rendering: pixelated;
+    object-fit: contain;
     margin: 15px auto 0;
     width: 125px;
     height: 125px;
