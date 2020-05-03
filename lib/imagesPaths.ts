@@ -38,7 +38,7 @@ const imagePaths = {
     pillager: 'images/mobs/pillager.png',
     cave_spider: 'images/mobs/cave_spider.png',
     bee: 'images/mobs/bee.gif',
-    blaze: 'images/mobs/blaze.png',
+    blaze: 'images/mobs/blaze.gif',
     wither_skeleton: 'images/mobs/wither_skeleton.png',
     magma_cube: 'images/mobs/magma_cube.png',
     enderman: 'images/mobs/enderman.png',
@@ -347,7 +347,7 @@ const imagePaths = {
     'minecraft:jungle_stairs': 'images/blocks/minecraft:jungle_stairs.png',
     'minecraft:jungle_trapdoor': 'images/blocks/minecraft:jungle_trapdoor.png',
     'minecraft:jungle_wood': 'images/blocks/minecraft:jungle_wood.png',
-    'minecraft:kelp': 'images/blocks/minecraft:kelp.png',
+    'minecraft:kelp': 'images/blocks/minecraft:kelp.gif',
     'minecraft:ladder': 'images/blocks/minecraft:ladder.png',
     'minecraft:lantern': 'images/blocks/minecraft:lantern.png',
     'minecraft:large_fern': 'images/blocks/minecraft:large_fern.png',
@@ -695,6 +695,7 @@ const imagePaths = {
     'minecraft:lily_of_the_valley': 'images/blocks/minecraft:lily_of_the_valley.png',
     'minecraft:lapis_block': 'images/blocks/minecraft:lapis_block.png',
     'minecraft:jack_o_lantern': 'images/blocks/minecraft:jack_o_lantern.png',
+    'minecraft:comparator': 'images/blocks/minecraft:minecraft:comparator.png'
 }
 
 export function getImage(name): string {
