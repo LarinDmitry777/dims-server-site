@@ -54,7 +54,7 @@ const strings = {
   fox: 'Лиса',
   turtle: 'Черепаха',
   cat: 'Кошка',
-  trader_llama: 'Странствующий торговец',
+  trader_llama: 'Лама торговца',
   tropical_fish: 'Тропческая рыба',
   parrot: 'Попугай',
   panda: 'Панда',
