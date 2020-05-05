@@ -1,35 +1,47 @@
-import style from './statisticCard.module.css';
-import React from "react";
-import {StatisticCardColor, StatisticCardProps} from "../@types/statisticTypes";
-import Link from "next/link";
+import Link from 'next/link';
+import React from 'react';
 
-const colorDict = {
-    [StatisticCardColor.bronze]: style.statisticCard_bronze,
-    [StatisticCardColor.silver]: style.statisticCard_silver,
-    [StatisticCardColor.gold]: style.statisticCard_gold,
+import { StatisticCardColor } from '../@types/statisticTypes';
+
+import style from './statisticCard.module.css';
+
+interface Props {
+  color: StatisticCardColor;
+  href: string;
+  text: string;
+  value: number;
+  imagePath: string;
 }
 
-export default function StatisticCard(props: StatisticCardProps) {
+const colorsDict = {
+  [StatisticCardColor.bronze]: style.statisticCard_bronze,
+  [StatisticCardColor.silver]: style.statisticCard_silver,
+  [StatisticCardColor.gold]: style.statisticCard_gold,
+};
 
-    const card = (
-        <div className={`${style.statisticCard} 
-                         ${props.color === undefined ? '' : colorDict[props.color]}
-                         ${props.href === undefined ? '' : style.statisticCard_cursor_pointer}`}>
-            <img className={style.statisticCard__image} src={props.imagePath} alt='' />
-            <div className={style.statisticCard__text}>{props.text}</div>
-            <div className={style.statisticCard__value}>{props.value}</div>
-        </div>
-    );
+export default function StatisticCard({
+  color, href, text, value, imagePath,
+}: Props): JSX.Element {
+  const card = (
+    <div className={`${style.statisticCard} 
+                     ${color === undefined ? '' : colorsDict[color]}
+                     ${href === undefined ? '' : style.statisticCard_cursor_pointer}`}
+    >
+      <img className={style.statisticCard__image} src={imagePath} alt="" />
+      <div className={style.statisticCard__text}>{text}</div>
+      <div className={style.statisticCard__value}>{value}</div>
+    </div>
+  );
 
-    if (props.href === undefined) {
-        return card;
-    }
+  if (href === undefined) {
+    return card;
+  }
 
-    return (
-        <Link href={props.href}>
-            <a>
-                {card}
-            </a>
-        </Link>
-    )
+  return (
+    <Link href={href}>
+      <a>
+        {card}
+      </a>
+    </Link>
+  );
 }

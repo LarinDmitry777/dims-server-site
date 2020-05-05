@@ -1,24 +1,24 @@
 .titleWrapper {
-    text-align: center;
+  text-align: center;
 }
 
 .titleWrapper__title {
-    font-family: 'Ubuntu Mono', monospace;
-    font-size: 50px;
-    text-align: center;
-    line-height: 50px;
-    margin: 10px 0 20px 0;
-    display: inline-block;
-    border: 2px solid rgb(100, 100, 100);
-    border-radius: 5px;
-    background: rgba(135, 135, 170, 0.8);
-    padding: 3px 3px;
-    width: 575px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin: 10px 0 20px 0;
+  display: inline-block;
+  border: 2px solid rgb(100, 100, 100);
+  border-radius: 5px;
+  background: rgba(135, 135, 170, 0.8);
+  padding: 3px 3px;
+  width: 575px;
 }
 
 @media only screen and (max-width: 600px) {
-    .titleWrapper__title {
-        font-size: 75px;
-        line-height: 75px;
-    }
+  .titleWrapper__title {
+    font-size: 75px;
+    line-height: 75px;
+  }
 }

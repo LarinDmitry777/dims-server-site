@@ -1,7 +1,7 @@
 export interface Statistics extends NumericStatistics{
-    entitiesKills: { [key: string]: number; };
-    blocksBreak: { [key: string]: number; };
-    breedAnimals: { [key: string]: number; };
+    entitiesKills: { [key: string]: number };
+    blocksBreak: { [key: string]: number };
+    breedAnimals: { [key: string]: number };
 }
 
 export interface StatisticPersist extends Statistics{
@@ -16,7 +16,7 @@ export interface NumericStatistics {
     blockBreaksCount: number;
     placedBlocksCount: number;
     entitiesKillsCount: number;
-    breedAnimalsCount: number
+    breedAnimalsCount: number;
     extractFurnaceCount: number;
     fishingCount: number;
     enchantItemsCount: number;
@@ -38,7 +38,7 @@ export enum StatisticCardColor {
 }
 
 export interface StatisticCardProps {
-    color?: StatisticCardColor
+    color?: StatisticCardColor;
     imagePath?: string;
     text: string;
     value: number;
