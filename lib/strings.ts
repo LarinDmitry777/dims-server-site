@@ -70,6 +70,7 @@ const strings = {
   snow_golem: 'Снежный голем',
   wandering_trader: 'Странствующий торговец',
   dolphin: 'Дельфин',
+  endermite: 'Чешуйница края',
 
   'minecraft:acacia_button': 'Акациевая кнопка',
   'minecraft:acacia_door': 'Акациевая дверь',

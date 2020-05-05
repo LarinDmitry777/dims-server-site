@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');
 
 html {
-  background: url("../public/images/nether.png") no-repeat fixed;
+  background: url("../public/images/background.png") no-repeat fixed;
   background-size: cover;
 }
 
