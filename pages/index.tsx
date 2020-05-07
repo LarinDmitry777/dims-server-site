@@ -1,39 +1,31 @@
-import React, {Component} from "react";
-import Header from "../components/header";
-import {GetServerSideProps} from "next";
-import {StatisticCardProps} from "../@types/statisticTypes";
-import Head from "next/head";
-import {getBaseStatistic} from "../lib/statAdapter";
-import {StatisticsCardList} from "../components/statisticCardsList";
+import React from 'react';
+import { GetServerSideProps } from 'next';
+import Head from 'next/head';
 
-export const getServerSideProps: GetServerSideProps = async context => {
-    return {
-        props: {
-            cards: getBaseStatistic()
-        }
-    }
+import { StatisticCardProps } from '../@types/statisticTypes';
+import { getBaseStatistic } from '../lib/statAdapter';
+import StatisticsCardList from '../components/statisticCardsList';
+import Header from '../components/header';
+
+export const getServerSideProps: GetServerSideProps = async () => ({
+  props: {
+    cards: getBaseStatistic(),
+  },
+});
+
+
+interface Props {
+    cards: StatisticCardProps[];
 }
 
-interface PageState {
-
-}
-
-interface PageProps {
-    cards: StatisticCardProps[]
-}
-
-export default class IndexPage extends Component<PageProps, PageState> {
-    render(): React.ReactNode {
-        return (
-            <>
-                <Head>
-                    <title>DimsServer</title>
-                </Head>
-                <Header />
-                <div className='page'>
-                    <StatisticsCardList title={'Общая статистика'} cards={this.props.cards} />
-                </div>
-            </>
-        )
-    }
-}
+export default ({ cards }: Props): JSX.Element => (
+  <>
+    <Head>
+      <title>DimsServer</title>
+    </Head>
+    <Header />
+    <div className="page">
+      <StatisticsCardList title="Общая статистика" cards={cards} />
+    </div>
+  </>
+);

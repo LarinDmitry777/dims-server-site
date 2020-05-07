@@ -1,43 +1,34 @@
-import React, {Component} from "react";
-import Header from "../components/header";
-import {GetServerSideProps} from "next";
-import {StatisticCardProps} from "../@types/statisticTypes";
-import StatisticCard from "../components/statisticCard";
-import Head from "next/head";
-import {getBreakBlocks, getBreedAnimals, getKilledEntities, getStatisticCards, getTopPlayers} from "../lib/statAdapter";
-import {StatisticsCardList} from "../components/statisticCardsList";
-import {Title} from "../components/title";
+import React from 'react';
+import { GetServerSideProps } from 'next';
+import Head from 'next/head';
+import Header from '../components/header';
+import { StatisticCardProps } from '../@types/statisticTypes';
+import { getTopPlayers } from '../lib/statAdapter';
+import StatisticsCardList from '../components/statisticCardsList';
+import Title from '../components/title';
 
-export const getServerSideProps: GetServerSideProps = async context => {
-    const topPlayers = getTopPlayers('joinCount');
-    return {
-        props: {
-            topPlayers
-        }
-    }
-}
+export const getServerSideProps: GetServerSideProps = async () => {
+  const topPlayers = getTopPlayers('joinCount');
+  return {
+    props: {
+      topPlayers,
+    },
+  };
+};
 
-interface PageProps {
+interface Props {
     topPlayers: StatisticCardProps[];
 }
 
-interface PageState {
-
-}
-
-export default class Page extends Component<PageProps, PageState> {
-    render(): React.ReactNode {
-        return (
-            <>
-                <Head>
-                    <title>DimsServer</title>
-                </Head>
-                <Header />
-                <div className='page'>
-                    <Title text='Входы на сервер' />
-                    <StatisticsCardList title='Рейтинг' cards={this.props.topPlayers} />
-                </div>
-            </>
-        )
-    }
-}
+export default ({ topPlayers }: Props): JSX.Element => (
+  <>
+    <Head>
+      <title>DimsServer</title>
+    </Head>
+    <Header />
+    <div className="page">
+      <Title text="Входы на сервер" />
+      <StatisticsCardList title="Рейтинг" cards={topPlayers} />
+    </div>
+  </>
+);

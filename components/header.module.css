@@ -1,113 +1,112 @@
 .header {
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
 .header__serverName {
-    line-height: 135px;
-    font-family: 'Amatic SC', cursive;
-    font-size: 100px;
-    text-align: center;
-    text-shadow: 0 0 15px rgba(0,0,0,1);
-    /*cursor: default;*/
-    color: whitesmoke;
-    transition: scale 1s;
+  line-height: 135px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 100px;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+  color: whitesmoke;
+  transition: scale 1s;
 }
 
 .header__serverName:hover {
-    transform: scale(1.05);
-    transition: 1s;
+  transform: scale(1.05);
+  transition: 1s;
 }
 
 .header__serverName::selection {
-    background: transparent;
+  background: transparent;
 }
 
 .header__subtitle {
-    font-family: 'Inter', sans-serif;
-    font-size: 40px;
-    text-align: center;
-    text-shadow: 0 0 15px rgba(0,0,0,1);
-    cursor: default;
-    color: whitesmoke;
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+  cursor: default;
+  color: whitesmoke;
 }
 
 .header__subtitle::selection {
-    background: transparent;
+  background: transparent;
 }
 
 .header__subtitle_highlighted {
-    font-family: 'Ubuntu Mono', monospace;
-    display: inline-block;
-    background: rgba(100, 100, 200, 0.66);
-    box-shadow: 0 0 15px rgba(0,0,0,0.7);
-    border-radius: 7px;
-    margin: 0 15px;
-    padding: 5px;
-    cursor: pointer;
-    position: relative;
-    transform: none;
-    transition: 0.2s;
+  font-family: 'Ubuntu Mono', monospace;
+  display: inline-block;
+  background: rgba(100, 100, 200, 0.66);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  border-radius: 7px;
+  margin: 0 15px;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+  transform: none;
+  transition: 0.2s;
 }
 
 .header__subtitle_highlighted:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 7px rgba(0,0,0,0.7);
-    transition: 0.2s;
+  transform: scale(1.05);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+  transition: 0.2s;
 }
 
 .header__subtitle_highlighted::selection {
-    background: transparent;
+  background: transparent;
 }
 
 .header__notification {
-    font-family: 'Ubuntu Mono', monospace;
-    width: 120px;
-    font-size: 20px;
-    display: inline-block;
-    position: fixed;
-    margin: auto;
-    background: rgba(0, 0, 0, 0.66);
-    padding: 10px;
-    border: 4px solid black;
-    border-radius: 20px;
-    z-index: 1;
-    text-align: center;
-    cursor: default;
+  font-family: 'Ubuntu Mono', monospace;
+  width: 120px;
+  font-size: 20px;
+  display: inline-block;
+  position: fixed;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.66);
+  padding: 10px;
+  border: 4px solid black;
+  border-radius: 20px;
+  z-index: 1;
+  text-align: center;
+  cursor: default;
 }
 
 .header__notification::selection {
-    background: transparent;
+  background: transparent;
 }
 
 @media only screen and (max-width: 600px) {
-    .header {
-        margin-bottom: 45px;
-    }
+  .header {
+    margin-bottom: 45px;
+  }
 
-    .header__serverName {
-        font-size: 250px;
-        line-height: 250px;
-        text-shadow: 0 0 30px rgba(0,0,0,1);
-        margin: 15px;
-    }
+  .header__serverName {
+    font-size: 250px;
+    line-height: 250px;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 1);
+    margin: 15px;
+  }
 
-    .header__subtitle {
-        margin: 5px;
-        font-size: 100px;
-        text-shadow: 0 0 15px rgba(0,0,0,1);
-    }
+  .header__subtitle {
+    margin: 5px;
+    font-size: 100px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+  }
 
-    .header__subtitle_highlighted {
-        padding: 15px;
-        margin: 10px;
-    }
+  .header__subtitle_highlighted {
+    padding: 15px;
+    margin: 10px;
+  }
 
-    .header__subtitle_highlighted:hover {
-        transform: none;
-    }
+  .header__subtitle_highlighted:hover {
+    transform: none;
+  }
 
-    .header__notification {
-        font-size: 45px;
-        width: 250px;
-    }
+  .header__notification {
+    font-size: 45px;
+    width: 250px;
+  }
 }
