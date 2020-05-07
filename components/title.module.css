@@ -11,7 +11,7 @@
   display: inline-block;
   border: 2px solid rgb(100, 100, 100);
   border-radius: 5px;
-  background: rgba(135, 135, 170, 0.8);
+  background: rgba(135, 135, 135, 0.66);
   padding: 3px 3px;
   width: 575px;
 }
