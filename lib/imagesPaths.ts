@@ -703,6 +703,7 @@ const imagePaths = {
   'minecraft:infested_mossy_stone_bricks': 'images/blocks/minecraft:mossy_stone_bricks.png',
   'minecraft:infested_stone': 'images/blocks/minecraft:stone.png',
   'minecraft:infested_stone_bricks': 'images/blocks/minecraft:stone_bricks.png',
+  'minecraft:comparator': 'images/blocks/minecraft:comparator.png'
 };
 
 export function getImage(name): string {
